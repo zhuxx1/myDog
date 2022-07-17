@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot name="CatModel2">
+  <link name="Cross">
+    <inertial>
+      <origin xyz="-2.36887598425994E-09 6.86024698058002E-09 7.23837040835466E-08" rpy="0 0 0" />
+      <mass value="0.113153796633628" />
+      <inertia ixx="0.000168367866604863" ixy="-5.26684924025301E-12" ixz="-2.60273835718829E-12" iyy="8.47639452117596E-05" iyz="5.67116897297494E-17" izz="8.47639968505591E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://CatModel2/meshes/Cross.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.529411764705882 0.549019607843137 0.549019607843137 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://CatModel2/meshes/Cross.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="Chset">
+    <inertial>
+      <origin xyz="0.104539401366541 -2.01621244951154E-05 0.00199155261541815" rpy="0 0 0" />
+      <mass value="1.27226284554368" />
+      <inertia ixx="0.00255686763387815" ixy="1.33312993805634E-06" ixz="-2.99664267243253E-07" iyy="0.00151466436913898" iyz="4.31801099234721E-07" izz="0.00191207554949256" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://CatModel2/meshes/Chset.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://CatModel2/meshes/Chset.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="Chest" type="revolute">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="Cross" />
+    <child link="Chset" />
+    <axis xyz="0 1 0" />
+    <limit lower="-0.82" upper="0.82" effort="15" velocity="5"  />
+  </joint>
+
+
+  <link name="LF_abad">
+    <inertial>
+      <origin xyz="-0.00315731503471477 -0.0157630614011298 0.000227202912327459" rpy="0 0 0" />
+      <mass value="0.0419114568273025" />
+      <inertia ixx="1.07554121115931E-05" ixy="-2.15175894008892E-08" ixz="-2.57374378273883E-10" iyy="2.05011185239708E-05" iyz="2.96687209794454E-09" izz="1.21095277275058E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://CatModel2/meshes/LF_abad.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://CatModel2/meshes/LF_abad.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="LF_abad" type="revolute">
+    <origin xyz="0.212 0.065 0" rpy="0 0 0" />
+    <parent link="Chset" />
+    <child link="LF_abad" />
+    <axis xyz="1 0 0" />
+    <limit lower="-0.82" upper="0.82" effort="9.6" velocity="10" />
+  </joint>
+  <link name="LF_hip">
+    <inertial>
+      <origin xyz="-0.00243046488327595 -0.011112656728708 -0.0480003348020764" rpy="0 0 0" />
+      <mass value="0.314940626414665" />
+      <inertia ixx="0.000594291196733731" ixy="1.06224043635234E-07" ixz="-2.17866578465269E-05" iyy="0.000651542828739686" iyz="-8.47333404135857E-07" izz="7.11737574291626E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://CatModel2/meshes/LF_hip.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://CatModel2/meshes/LF_hip.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="LF_hip" type="continuous">
+    <origin xyz="0 0.074 0" rpy="0 0 0" />
+    <parent link="LF_abad" />
+    <child link="LF_hip" />
+     <axis xyz="0 1 0" />
+    <limit lower="0" upper="1.57" effort="9.6" velocity="10" />
+  </joint>
+  <link name="LF_knee">
+    <inertial>
+      <origin xyz="0.00561755093046278 0.000301101032891854 -0.0903666836811455" rpy="0 0 0" />
+      <mass value="0.109679028133934" />
+      <inertia ixx="0.000181176674288961" ixy="6.8497866262947E-08" ixz="1.72571263996097E-05" iyy="0.000189177473520563" iyz="-1.19481690597446E-06" izz="1.26617827767227E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://CatModel2/meshes/LF_knee.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://CatModel2/meshes/LF_knee.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="LF_knee" type="revolute">
+    <origin xyz="0 0 -0.16" rpy="0 0 0" />
+    <parent link="LF_hip" />
+    <child link="LF_knee" />
+    <axis xyz="0 1 0" />
+    <limit lower="-2.686" upper="-1.256" effort="15" velocity="5"  />
+  </joint>
+
+
+  <link name="RF_abad">
+    <inertial>
+      <origin xyz="-0.00315731503973792 0.0157630613984146 -0.000227202903724633" rpy="0 0 0" />
+      <mass value="0.0419114568371167" />
+      <inertia ixx="1.0755412112407E-05" ixy="2.15175896810622E-08" ixz="2.57376924907662E-10" iyy="2.05011185252329E-05" iyz="2.96687245223769E-09" izz="1.21095277281205E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://CatModel2/meshes/RF_abad.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://CatModel2/meshes/RF_abad.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="RF_abad" type="revolute">
+    <origin xyz="0.212 -0.065 0" rpy="0 0 0" />
+    <parent link="Chset" />
+    <child link="RF_abad" />
+    <axis xyz="1 0 0" />
+    <limit lower="-0.82" upper="0.82" effort="9.6" velocity="10" />
+  </joint>
+  <link name="RF_hip">
+    <inertial>
+      <origin xyz="-0.00293006849986141 0.0111126338635463 -0.0481325315861406" rpy="0 0 0" />
+      <mass value="0.314940960599133" />
+      <inertia ixx="0.00059459595957455" ixy="4.23723881541258E-07" ixz="-3.16399196720918E-05" iyy="0.000651543290902422" iyz="8.93977706686632E-07" izz="7.08694567016182E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://CatModel2/meshes/RF_hip.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://CatModel2/meshes/RF_hip.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="RF_hip" type="revolute">
+    <origin xyz="0 -0.074 0" rpy="0 0 0" />
+    <parent link="RF_abad" />
+    <child link="RF_hip" />
+    <axis xyz="0 1 0" />
+    <limit lower="0" upper="1.57" effort="9.6" velocity="10" />
+  </joint>
+  <link name="RF_knee">
+    <inertial>
+      <origin xyz="0.0057361734222746 -0.000308939783191214 -0.088488367824386" rpy="0 0 0" />
+      <mass value="0.106646958451677" />
+      <inertia ixx="0.0001810316756261" ixy="-6.840967726939E-08" ixz="1.72986379221257E-05" iyy="0.000189007894340882" iyz="1.19485945084853E-06" izz="1.26261291969592E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://CatModel2/meshes/RF_knee.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://CatModel2/meshes/RF_knee.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_knee" type="revolute">
+    <origin xyz="0 0 -0.16"       rpy="0 0 0" />
+    <parent link="RF_hip" />
+    <child link="RF_knee" />
+     <axis xyz="0 1 0" />
+    <limit lower="-2.686" upper="-1.256" effort="15" velocity="5"  />
+  </joint>
+
+
+  <link name="Base">
+    <inertial>
+      <origin xyz="-0.104866519097141 -0.000200131242715715 0.00196670518984567" rpy="0 0 0" />
+      <mass value="1.2520876747788" />
+      <inertia ixx="0.00253418595656046" ixy="-3.60836540668734E-08" ixz="-1.55285181148202E-07" iyy="0.00154222832881662" iyz="4.07833979931759E-08" izz="0.00183756574635262" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://CatModel2/meshes/Base.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://CatModel2/meshes/Base.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="Base" type="revolute">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="Cross" />
+    <child link="Base" />
+    <axis xyz="0 0 1" />
+    <limit lower="-0.82" upper="0.82" effort="15" velocity="5"  />
+  </joint>
+
+
+  <link name="LH_abad">
+    <inertial>
+      <origin xyz="0.00315731228081689 -0.0157630634983849 -0.000227202943482577" rpy="0 0 0" />
+      <mass value="0.0419114512334411" />
+      <inertia ixx="1.07554116705623E-05" ixy="2.1517601323664E-08" ixz="-2.57343118825613E-10" iyy="2.05011179838274E-05" iyz="-2.96677366275741E-09" izz="1.21095272230384E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://CatModel2/meshes/LH_abad.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://CatModel2/meshes/LH_abad.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="LH_abad" type="revolute">
+    <origin xyz="-0.212 0.065 0" rpy="0 0 0" />
+    <parent link="Base" />
+    <child link="LH_abad" />
+    <axis xyz="1 0 0" />
+    <limit lower="-0.82" upper="0.82" effort="9.6" velocity="10" />
+  </joint>
+  <link name="LH_hip">
+    <inertial>
+      <origin xyz="-0.00261060966947746 -0.0111126568628543 -0.0453239292311085" rpy="0 0 0" />
+      <mass value="0.31494062640954" />
+      <inertia ixx="0.000594897165702347" ixy="1.49898168266193E-08" ixz="-2.64691530400208E-05" iyy="0.000651542828738764" iyz="-1.91453340197307E-06" izz="7.05677884596025E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://CatModel2/meshes/LH_hip.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://CatModel2/meshes/LH_hip.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="LH_hip" type="revolute">
+    <origin xyz="0 0.074 0"       rpy="0 0 0" />
+    <parent link="LH_abad" />
+    <child link="LH_hip" />
+     <axis xyz="0 1 0" />
+    <limit lower="0" upper="1.57" effort="9.6" velocity="10" />
+  </joint>
+  <link name="LH_knee">
+    <inertial>
+      <origin xyz="0.00561755100792938 0.000301101241921481 -0.0903666841961551" rpy="0 0 0" />
+      <mass value="0.109679032714885" />
+      <inertia ixx="0.000181176659269156" ixy="6.84977743796153E-08" ixz="1.72571308921416E-05" iyy="0.000189177466092634" iyz="-1.19481707528627E-06" izz="1.26617899745287E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://CatModel2/meshes/LH_knee.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://CatModel2/meshes/LH_knee.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="LH_knee" type="revolute">
+    <origin xyz="0 0 -0.16"      rpy="0 0 0" />
+    <parent link="LH_hip" />
+    <child link="LH_knee" />
+    <axis xyz="0 1 0" />
+    <limit lower="-2.686" upper="-1.256" effort="15" velocity="5"  />
+  </joint>
+
+  
+  <link name="RH_abad">
+    <inertial>
+      <origin xyz="0.00315731228081695 0.0157630634983865 0.000227202943490899" rpy="0 0 0" />
+      <mass value="0.041911451233441" />
+      <inertia ixx="1.07554116705622E-05" ixy="-2.15176013236536E-08" ixz="2.57343118826748E-10" iyy="2.05011179838273E-05" iyz="-2.96677366276177E-09" izz="1.21095272230384E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://CatModel2/meshes/RH_abad.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://CatModel2/meshes/RH_abad.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="RH_abad" type="revolute">
+    <origin xyz="-0.212 -0.065 0" rpy="0 0 0" />
+    <parent link="Base" />
+    <child link="RH_abad" />
+    <axis xyz="1 0 0" />
+    <limit lower="-0.82" upper="0.82" effort="9.6" velocity="10" />
+  </joint>
+  <link name="RH_hip">
+    <inertial>
+      <origin xyz="-0.00121771777274157 0.0111126311483641 -0.0465691992833869" rpy="0 0 0" />
+      <mass value="0.31494099996697" />
+      <inertia ixx="0.000595250316400976" ixy="6.36073467517975E-07" ixz="-2.70738278482031E-05" iyy="0.000651543359774013" iyz="1.54882059560898E-06" izz="7.02151686679286E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://CatModel2/meshes/RH_hip.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://CatModel2/meshes/RH_hip.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="RH_hip" type="revolute">
+    <origin xyz="0 -0.074 0"       rpy="0 0 0" />
+    <parent link="RH_abad" />
+    <child link="RH_hip" />
+    <axis xyz="0 1 0" />
+    <limit lower="0" upper="1.57" effort="9.6" velocity="10" />
+  </joint>
+  <link name="RH_knee">
+    <inertial>
+      <origin xyz="0.00573618217536953 -0.000308939776447942 -0.0884883618564003" rpy="0 0 0" />
+      <mass value="0.106646978246544" />
+      <inertia ixx="0.00018103168186845" ixy="-6.84128596529973E-08" ixz="1.72975770397883E-05" iyy="0.000189007967097882" iyz="1.19485505493659E-06" izz="1.26261947469519E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://CatModel2/meshes/RH_knee.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://CatModel2/meshes/RH_knee.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="RH_knee" type="revolute">
+    <origin xyz="0 0 -0.16"       rpy="0 0 0" />
+    <parent link="RH_hip" />
+    <child link="RH_knee" />
+     <axis xyz="0 1 0" />
+    <limit lower="-2.686" upper="-1.256" effort="15" velocity="5"  />
+  </joint>
+</robot>
